@@ -1,0 +1,88 @@
+
+<mat-stepper [linear]="isLinear" #stepper class="mat-stepper">
+    <mat-step [stepControl]="firstFormGroup">
+      <div class="mat-form-first-slide">
+        <ng-template matStepLabel>General info</ng-template>
+        <div class="first-text">
+          <h1 >
+            General Information
+          </h1>
+          <span id="under-first-text">
+              Let's fill out the basics information of the contract.
+          </span>
+          <div class="inputs">
+            <div class="subDiv">
+              <label for="">Team</label>
+              <select name="Teams" id="">
+                <option value="Fallo Team">Fillo Team</option>
+                <option value="Django Team">Django Team</option>
+              </select>
+            </div>
+            <div class="subDiv">
+              <label for="">Contract Name</label>
+              <input type="text" placeholder="Contract for Product Design">
+            </div>
+
+            <div class="inputs-countries">
+              <div class="subDiv">
+                <label for="">Contractor's Country</label>
+                <select name="Countries">
+                  <option value="Usa">Usa</option>
+                  <option value="Canada">Canada</option>
+                  <option value="Mexico">Mexico</option>
+                </select>
+              </div>
+
+              <div class="subDiv">
+                <label for="">State</label>
+                <select name="State">
+                  <option value="Toronto">Toronto</option>
+                  <option value="New-York">New-York</option>
+                </select>
+              </div>
+            </div>
+            <div class="subDiv">
+                <label for="">Job Title</label>
+                <select name="Jobs">
+                  <option value="Product Designer">Product Descigner</option>
+                  <option value="Web Developer">Web Developer</option>
+                </select>
+            </div>
+            <div class="subDiv">
+              <label for="">Area of Work</label>
+              <textarea name="" id=""></textarea>
+            </div>
+            <div class="subDiv">
+              <label for="">Start Date</label>
+              <input type="date">
+            </div>
+          </div>
+        </div>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </div>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+      <form [formGroup]="secondFormGroup">
+        <mat-form-field>
+          <mat-label>Address</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+                 required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+  
